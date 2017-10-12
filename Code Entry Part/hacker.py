@@ -8,18 +8,20 @@ compiler = HackerRankAPI(api_key = API_KEY)
 
 
 source ='''
-N, M = map(int,raw_input().split()) 
-for i in xrange(1,N,2): 
-    print (".|."*i).center(M,'-')
+x = input()
+x= int(x)
+for j in range(0,10000000):
+    x=x
     
-print "WELCOME".center(M,'-')
-for i in xrange(N-2,-1,-2): 
-    print (".|."*i).center(M,'-') 
+print(x*2)
 '''
 
+lan = "python3" 
+tes = ["10" , "20"]
 result = compiler.run({'source': source,
-                       'lang':'python',
-                       'testcases':["9 27"]
+                       'lang':lan,
+                       'testcases':tes
                        })
-                       
-print(result.output[0])
+
+            
+print(result.output , result.time )
