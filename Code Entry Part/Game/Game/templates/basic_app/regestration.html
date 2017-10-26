@@ -1,0 +1,16 @@
+{% extends "basic_app/base.html" %}
+{%block body_block%}
+
+<div class = "jumbotron">
+{% if registered%}
+<h2> aredy regestated</h2>
+{%else%}
+<h1>regester now</h1>
+<form method="POST" >
+  {% csrf_token %}
+  {{UserForm.as_p}}
+  <input type="submit" name="" value="Register">
+</form>
+{%endif%}
+{% endblock%}
+</div>
