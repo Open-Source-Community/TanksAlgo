@@ -34,4 +34,3 @@ $('.codearea').append('// write down your code and in the end dont return anythi
 $('.codearea').append('var x=20; \n result = x+300*2; \n');
 
 $('.codearea').append('//try and submit, delete the code after to resumbit.'); 
-
