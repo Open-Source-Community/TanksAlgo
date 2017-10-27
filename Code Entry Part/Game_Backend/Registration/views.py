@@ -3,8 +3,8 @@ from __future__ import unicode_literals
 from Registration.forms import UserForm
 from django.shortcuts import render
 
-# Create your views here.
 
+#Displays and handles user registration
 def register(request):
     registered = False
     if request.method == 'POST':
@@ -14,7 +14,7 @@ def register(request):
               #Hashing
             user.set_password(user.password)
             user.save()
-            registered =True
+            registered = True
         else:
             print(user_form.errors)
     else:
