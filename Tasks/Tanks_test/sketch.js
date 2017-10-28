@@ -8,6 +8,9 @@ var Tank02;
 var pos2x=0; 
 var pos2y =0; 
 var count2 =0; 
+var background_color = 256;
+var counter_background=0;
+var mycolors=[] ;
 function setup() {
   
   // put setup code here
@@ -15,7 +18,13 @@ function setup() {
 
   createCanvas(windowWidth, windowHeight); 
 
+  mycolors.push(0); 
+  for (var j =0; j<10; j++)
+  {
+    mycolors.push(color(random(100,255) , random(120 , 255) , random(130,255) )); 
+  }
   Tank = new tank(); 
+  Tank.obstacles_image = "coint.png";
   Tank.intiate(); 
  
   Tank02= new tank(); 
@@ -34,7 +43,7 @@ function setup() {
 
 
 function draw() {
-  background(0);
+  background(background_color);
   // put drawing code here5,
   if(Tank.sprite.overlap(Tank.obstacles[count])) // sp is the tank over here.
   {
@@ -61,6 +70,9 @@ pos2y= Tank02.obstacles[count2].position.y;
    Tank.attract(posx , posy); 
    Tank02.attract(pos2x , pos2y); 
   
+   Tank.move_obstacles(); 
+   Tank.collid_all(); 
+   Tank02.move_obstacles(); 
   drawSprites(); 
 
 }
@@ -78,6 +90,7 @@ class tank
     this.rotateto=true; 
     this.obstacles = new Group(); 
     this.obstacles_count=0; 
+    this.obstacles_image = "obstacle.png";
      
   }
   intiate()
@@ -105,7 +118,7 @@ class tank
     for (var i =0; i<20; i++)
     {
       var obstacle_temp= createSprite(random(width) , random(height) , random(30,50) , random(20,70)); 
-      obstacle_temp.addImage(loadImage('obstacle.png'));
+      obstacle_temp.addImage(loadImage(this.obstacles_image));
       obstacle_temp.scale = random(0.1, 0.3);
       this.obstacles_count++; 
 
@@ -113,4 +126,27 @@ class tank
       
     }
   }
+  move_obstacles()
+  {
+    for (var i=0; i<20; i++)
+    {
+      this.obstacles[i].position.x += random(-2,2); 
+      this.obstacles[i].position.y += random(-2,2); 
+      
+    }
+  }
+  collid_all()
+  {
+    for (var i=0; i<20; i++)
+    {
+      this.sprite.displace(this.obstacles[i]); 
+    }
+  }
+}
+
+function mousePressed()
+{
+
+background_color=mycolors[counter_background]; 
+counter_background= (counter_background+1)%mycolors.length; 
 }
