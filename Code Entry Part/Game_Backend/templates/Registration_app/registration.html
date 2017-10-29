@@ -1,28 +1,20 @@
-<!DOCTYPE html>
-<html>
+{% extends 'Registration_app/base.html' %}
+{% block body_block %}
 
-<head>
-  <meta charset="utf-8">
-  <title>Registration</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-</head>
 
-<body>
-  <div class="container">
-      <div class="jumbotron">
-        {% if registered %}
-            <h2>You are already registered</h2>
-        {% else %}
-            <h1>register now</h1>
-            <form method="POST">
-               {% csrf_token %}
-               {{user_form.as_p}}
-              <input type="submit" value="Register">
-            </form>
-        {% endif %}
-      </div>
-    </div>
+<div class="container">
+  <div class="jumbotron">
+    {% if registered %}
+        <h2>You are already registered</h2>
+    {% else %}
+        <h1>Please Register</h1>
+        <form method="POST">
+           {% csrf_token %}
+           {{user_form.as_p}}
+          <input type="submit" value="Register">
+        </form>
+    {% endif %}
+  </div>
+</div>
 
-</body>
-
-</html>
+{% endblock %}

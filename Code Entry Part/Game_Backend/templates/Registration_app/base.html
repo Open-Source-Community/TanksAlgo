@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Base</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <ul class="nav navbar-nav">
+
+          {# AlgoTanks Home Link / Admin Link / Register Link / Login Link#}
+          <li><a class="navbar-brand" href={% url 'Registration_app:home' %}>AlgoTanks</a></li>
+          <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
+          <li><a class="navbar-link" href="{% url 'Registration_app:register' %}">Register</a></li>
+
+          {# Some logic on what to display for last item#}
+          {% if user.is_authenticated %}
+            <li><a href="{% url 'Registration_app:logout' %}">Logout</a></li> -->
+          {% else %}
+            <li><a class="navbar-link" href="{% url 'Registration_app:login' %}">Login</a></li>
+          {% endif %}
+
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+    {% block body_block %}
+        <div class="jumbotron">
+            <h1>Welcome to AlgoTanks !</h1>
+        </div>
+    {% endblock %}
+    </div>
+
+
+  </body>
+</html>
