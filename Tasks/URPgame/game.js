@@ -35,7 +35,7 @@ class game
       this.health =400;
     }
 
-    for (var i =0; i<50; i++)
+    for (var i =0; i<53; i++)
     {
       this.obstacles.push(new coin());
       this.obstacles[i].set_positions(random(120,width) , random(height));
@@ -54,7 +54,7 @@ class game
         this.player.score++;
         if (this.player.score ==this.coins.length)
         {this.goodchecker=1; }
-        if (this.player.score >1)
+        if (this.player.score >4)
         {this.danger_move = 1; }
         this.player.sprite.maxSpeed+= 0.1;
         console.log(this.player.score);
