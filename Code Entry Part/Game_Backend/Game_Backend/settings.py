@@ -22,6 +22,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR,'templates')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'hzz=j0hag(&+mad278cvh8tlt_09hma3elj0-=%2*xxz3iz9**'
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -36,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Registration',
+    'Registration','problems',
 ]
 
 MIDDLEWARE = [
