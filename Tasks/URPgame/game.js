@@ -96,7 +96,16 @@ class game
   textSize(72);
   textAlign(CENTER, CENTER);
   text("GAME OVER", width/2, height/2);
+  this.player.sprite.remove();
   }
+}
+scoreshow()
+{
+  fill(255);
+  noStroke();
+  textSize(72);
+  textAlign(CENTER, CENTER);
+  text("Score: " + this.player.score, 150, 30);
 }
   goodgame()
   {

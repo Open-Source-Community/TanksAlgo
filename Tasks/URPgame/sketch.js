@@ -29,6 +29,7 @@ function draw()
   mygame.goodgame();
   mygame.showhealth();
   mygame.move_obs();
+  mygame.scoreshow(); 
 
 
    drawSprites();
