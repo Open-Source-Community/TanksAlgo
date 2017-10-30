@@ -29,7 +29,8 @@ function draw()
   mygame.goodgame();
   mygame.showhealth();
   mygame.move_obs();
-  mygame.scoreshow(); 
+  mygame.scoreshow();
+  mygame.player.walls();
 
 
    drawSprites();
@@ -39,10 +40,11 @@ class structure{
   constructor()
   {
     this.pos = createVector();
-    this.image = "Tank-GTAA.png";
+    this.image = "444.png";
     this.speed = 2;
     this.friction = 0.7;
     this.sprite = null ;
+
   }
 
 
@@ -60,13 +62,35 @@ constructor()
   attract_to(x , y)
   {
     this.sprite.attractionPoint(0.5 , x , y);
+
   }
   createplayer(){
     this.sprite = createSprite(30,30 , 5 , 5);
     this.sprite.addImage(loadImage(this.image));
-    this.sprite.scale = 0.2;
+    this.sprite.scale = 0.15;
     this.sprite.maxSpeed = this.speed;
     this.sprite.rotateToDirection = true;
+    this.sprite.setCollider("circle" , this.pos.x+40, this.pos.y+50,100);
+
+  }
+  walls()
+  {
+    if (this.sprite.position.x <10)
+    {
+      this.sprite.position.x = 10;
+    }
+    if (this.sprite.position.x >width-10)
+    {
+      this.sprite.position.x = width-10;
+    }
+    if (this.sprite.position.y <10)
+    {
+      this.sprite.position.y = 10;
+    }
+    if (this.sprite.position.y >height-10)
+    {
+      this.sprite.position.y = height-10;
+    }
   }
 }
 

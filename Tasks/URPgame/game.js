@@ -14,6 +14,7 @@ class game
   start_test()
   {
     this.player.createplayer();
+    this.player.walls();
   }
   view(){
     if (mouseIsPressed)
