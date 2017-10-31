@@ -99,7 +99,7 @@ class coin extends structure
 constructor()
 {
   super();
-  this.image = "coint.png";
+  this.image = "antart.png";
 }
 
 destroy()
@@ -113,6 +113,7 @@ createcoin()
   this.sprite = createSprite(this.pos.x , this.pos.y);
   this.sprite.addImage(loadImage(this.image));
   this.sprite.scale = random(0.1 , 0.2);
+
 }
 set_positions(x , y){
   this.pos.x = x;

@@ -27,13 +27,14 @@ class game
 
   populate()
   {
-    for (var i =0; i<30; i++)
+    for (var i =0; i<20; i++)
     {
       this.coins.push(new coin());
       this.coins[i].set_positions(random(width) , random(height));
       this.coins[i].createcoin();
       this.game_list.push(i);
       this.health =400;
+      this.coins[i].sprite.mirrorX(-1);
     }
 
     for (var i =0; i<53; i++)
