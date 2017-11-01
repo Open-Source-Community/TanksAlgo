@@ -9,6 +9,7 @@ class game
     this.obstacles = [];
     this.coins_count ;
     this.coingrp = new Group();
+    this.enemy = new coin() ;
     this.game_list =[];
   }
   start_test()
@@ -18,22 +19,20 @@ class game
   }
   view(){
     if (mouseIsPressed)
-    {
-    this.player.attract_to(mouseX , mouseY);
-  }
+  this.player.attract_to(mouseX , mouseY);
   }
 
 
 
   populate()
   {
-    for (var i =0; i<20; i++)
+    for (var i =0; i<24; i++)
     {
       this.coins.push(new coin());
-      this.coins[i].set_positions(random(width) , random(height));
+      this.coins[i].set_positions(random( 40 , width-20) , random(40 , height-20));
       this.coins[i].createcoin();
       this.game_list.push(i);
-      this.health =400;
+      this.health =300;
       this.coins[i].sprite.mirrorX(-1);
     }
 
@@ -44,6 +43,8 @@ class game
       this.obstacles[i].image="rock.png";
       this.obstacles[i].createcoin();
     }
+    this.enemy.set_positions(width-100 , 70);
+    this.enemy.image = "ghost.png";
   }
   eat()
   {
@@ -58,7 +59,7 @@ class game
         {this.goodchecker=1; }
         if (this.player.score >4)
         {this.danger_move = 1; }
-        this.player.sprite.maxSpeed+= 0.1;
+        this.player.sprite.maxSpeed+= 0.15;
         console.log(this.player.score);
       }
     }
@@ -72,6 +73,7 @@ class game
       this.obstacles[i].sprite.position.y+=random(-2,2);
 
     }
+
   }
   }
 
@@ -117,6 +119,7 @@ scoreshow()
     textSize(72);
     textAlign(CENTER, CENTER);
     text("Horray, you won the game!", width/2, height/2);
+    this.player.sprite.remove();
   }
   }
   showhealth()

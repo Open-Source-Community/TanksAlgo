@@ -9,12 +9,11 @@ function setup()
 {
   createCanvas(windowWidth, windowHeight);
   backcolor = color(0,191,255);
+  backcolor = color(random(100,255) , random(100,255) , random(30,70));
   mygame = new game();
   mygame.start_test();
   mygame.populate();
 }
-
-
 
 
 
@@ -33,6 +32,7 @@ function draw()
   mygame.player.walls();
 
 
+
    drawSprites();
 }
 
@@ -41,7 +41,7 @@ class structure{
   {
     this.pos = createVector();
     this.image = "444.png";
-    this.speed = 2;
+    this.speed = 2.7;
     this.friction = 0.7;
     this.sprite = null ;
 
