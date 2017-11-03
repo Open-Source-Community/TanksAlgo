@@ -5,9 +5,20 @@ var player1;
 var coin_test;
 var mygame ;
 var backcolor = 50;
+var anime ; 
+
+function preload()
+{
+  anime = loadAnimation("assets/full.png" , "assets/semi.png" , "assets/closed.png");
+}
 function setup()
 {
   createCanvas(windowWidth, windowHeight);
+  spr = createSprite(width/2, height/2);
+  spr.addAnimation("default", anime);
+  spr.scale= 0.09; 
+  spr.rotateToDirection = true;
+  spr.maxSpeed=1; 
   backcolor = color(0,191,255);
   backcolor = color(random(100,255) , random(100,255) , random(30,70));
   mygame = new game();
@@ -30,8 +41,7 @@ function draw()
   mygame.move_obs();
   mygame.scoreshow();
   mygame.player.walls();
-
-
+  spr.attractionPoint(0.5 , mygame.player.sprite.position.x , mygame.player.sprite.position.y); 
 
    drawSprites();
 }
