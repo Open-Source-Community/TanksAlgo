@@ -20,4 +20,5 @@ from Registration import views
 urlpatterns = [
     url(r'^registration/',include('Registration.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^game/',include('problems.urls')),
 ]
