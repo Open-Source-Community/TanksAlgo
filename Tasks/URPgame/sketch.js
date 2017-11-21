@@ -9,7 +9,7 @@ var anime ;
 
 function preload()
 {
-  anime = loadAnimation("assets/full.png" , "assets/semi.png" , "assets/closed.png");
+  anime = loadAnimation("assets/semi_full.png","assets/full.png" , "assets/semi.png" ,"assets/tiny.png", "assets/closed.png");
 }
 function setup()
 {
@@ -41,7 +41,7 @@ function draw()
   mygame.move_obs();
   mygame.scoreshow();
   mygame.player.walls();
-  spr.attractionPoint(0.5 , mygame.player.sprite.position.x , mygame.player.sprite.position.y); 
+  spr.attractionPoint(2 , mygame.player.sprite.position.x , mygame.player.sprite.position.y); 
 
    drawSprites();
 }
