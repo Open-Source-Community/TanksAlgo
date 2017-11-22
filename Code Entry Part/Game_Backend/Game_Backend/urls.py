@@ -19,5 +19,6 @@ from Registration import views
 
 urlpatterns = [
     url(r'^registration/',include('Registration.urls')),
+    url(r'^problems/',include('problems.urls')),
     url(r'^admin/', admin.site.urls),
 ]

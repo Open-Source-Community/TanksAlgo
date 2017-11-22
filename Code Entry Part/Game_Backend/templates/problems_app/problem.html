@@ -1,0 +1,23 @@
+{% extends 'Registration_app/base.html' %}
+{% block body_block %}
+
+    <div class="container">
+        <div class="jumbotron">
+            {% if user.is_authenticated %}
+
+                <h1>Problem Statement:</h1>
+                <h2> {{ problem_statement }} </h2>
+
+                <form method="POST">
+                    {% csrf_token %}
+                    <input type="text" name="user_solution">
+                    <input type="submit" value="Submit">
+                </form>
+
+            {% else %}
+                <h1>Please Login first</h1>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

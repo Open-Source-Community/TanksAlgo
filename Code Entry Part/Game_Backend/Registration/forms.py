@@ -6,5 +6,5 @@ class UserForm(forms.ModelForm):
     Password = forms.CharField(widget = forms.PasswordInput(),max_length=32)
 
     class Meta():
-         model= User
+         model = User
          fields =('username','email','password')

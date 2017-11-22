@@ -17,9 +17,10 @@
           <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
           <li><a class="navbar-link" href="{% url 'Registration_app:register' %}">Register</a></li>
 
-          {# Some logic on what to display for last item#}
+          {# Determining what to display for last item #}
           {% if user.is_authenticated %}
-            <li><a href="{% url 'Registration_app:logout' %}">Logout</a></li> -->
+              <li><a href="{% url 'problems_app:Show_Problem' %}">Problem</a></li>
+              <li><a href="{% url 'Registration_app:logout' %}">Logout</a></li>
           {% else %}
             <li><a class="navbar-link" href="{% url 'Registration_app:login' %}">Login</a></li>
           {% endif %}
