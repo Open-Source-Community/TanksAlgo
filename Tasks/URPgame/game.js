@@ -9,7 +9,7 @@ class game
     this.obstacles = [];
     this.coins_count ;
     this.coingrp = new Group();
-    this.enemy = new coin() ;
+    this.enemy = new object() ;
     this.game_list =[];
   }
   start_test()
@@ -28,7 +28,7 @@ class game
   {
     for (var i =0; i<24; i++)
     {
-      this.coins.push(new coin());
+      this.coins.push(new object());
       this.coins[i].set_positions(random( 40 , width-20) , random(40 , height-20));
       this.coins[i].createcoin();
       this.game_list.push(i);
@@ -38,13 +38,13 @@ class game
 
     for (var i =0; i<53; i++)
     {
-      this.obstacles.push(new coin());
+      this.obstacles.push(new object());
       this.obstacles[i].set_positions(random(120,width) , random(height));
-      this.obstacles[i].image="rock.png";
+      this.obstacles[i].image="assets/rock.png";
       this.obstacles[i].createcoin();
     }
     this.enemy.set_positions(width-100 , 70);
-    this.enemy.image = "ghost.png";
+    this.enemy.image = "assets/ghost.png";
   }
   eat()
   {

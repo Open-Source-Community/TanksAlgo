@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^registration/',include('Registration.urls')),
     url(r'^problems/',include('problems.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^game/',include('problems.urls')),
 ]
