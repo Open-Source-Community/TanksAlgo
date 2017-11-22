@@ -9,11 +9,15 @@
                 <h2> {{ problem_statement }} </h2>
 
                 <form method="POST">
+                <h3>Enter the desired language: <input type="text" name="lang"></h3>
+                <h3>Enter your code here:</h3>
                     {% csrf_token %}
-                    <input type="text" name="user_solution">
+                    <textarea name="user_solution" rows="10" cols="30"></textarea>
                     <input type="submit" value="Submit">
                 </form>
 
+                <h3>Result:</h3>
+                <h3>{{ test_result }}</h3>
             {% else %}
                 <h1>Please Login first</h1>
             {% endif %}
