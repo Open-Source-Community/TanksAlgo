@@ -1,6 +1,6 @@
 {% extends 'Registration_app/base.html' %}
 {% block body_block %}
-
+{%  load staticfiles %}
 <div class="container">
   <div class="jumbotron">
     {% if registered %}
@@ -15,5 +15,5 @@
     {% endif %}
   </div>
 </div>
-
+<img src="{% static "images/test.png" %}">
 {% endblock %}

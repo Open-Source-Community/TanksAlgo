@@ -12,3 +12,4 @@ class Test_cases (models.Model):
 class Result (models.Model):
     result_id = models.IntegerField()
     result = models.TextField()
+

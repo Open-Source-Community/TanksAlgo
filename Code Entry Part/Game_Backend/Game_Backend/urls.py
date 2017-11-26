@@ -16,8 +16,11 @@ Including another URLconf
 from django.conf.urls import url,include
 from django.contrib import admin
 from Registration import views
+from problems import views as v
 
 urlpatterns = [
+   
+    url(r'^$' , views.home , name=None ),
     url(r'^registration/',include('Registration.urls')),
     url(r'^problems/',include('problems.urls')),
     url(r'^admin/', admin.site.urls),
