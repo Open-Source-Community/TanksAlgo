@@ -1,1 +1,0 @@
-Create the game object (tank) with movement animations and so on
