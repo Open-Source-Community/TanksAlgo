@@ -1,7 +1,6 @@
-Interface Part : Ahmed Samir , Mostafa mohamed , Kamal , Sara (DONE)
-
-
-Object Creation Part : Ahmed Tohamy , Saieed , Mohamed ashraf , Musta
-
-
-Code Entry Part : Amr Taher , Ahmad Hussain , Abdelrahman , Omar Alsawaf
+MUSTA
+ASHRAF
+MOSTAFA
+AHMAD
+ABD
+KAMAL
