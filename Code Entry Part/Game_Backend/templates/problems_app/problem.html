@@ -4,11 +4,10 @@
     <div class="container">
         <div class="jumbotron">
             {% if user.is_authenticated %}
-
                 <h1>Problem Statement:</h1>
                 <h2> {{ problem_statement }} </h2>
 
-                <form method="POST">
+                <form method="POST" id="input_form">
                 <h3>Enter the desired language: <input type="text" name="lang"></h3>
                 <h3>Enter your code here:</h3>
                     {% csrf_token %}
@@ -25,3 +24,14 @@
     </div>
 
 {% endblock %}
+
+<!--
+Not Functional!
+*should prevent the page from reloading when 'submit' is pressed
+-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>  <!-- jQuery -->
+<script type="text/javascript">
+    $(document).on('submit','input_form', function (x) {
+        x.preventDefault();
+    });
+</script>
