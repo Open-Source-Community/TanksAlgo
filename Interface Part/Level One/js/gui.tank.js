@@ -14,8 +14,8 @@ class VisualTank
        this.sprite.friction = 0.1;
        this.sprite.maxSpeed = 2.5;
        this.cannon = createSprite(x+15 , y+22); 
-       this.cannon.addImage(loadImage("imgs/canon2.png"));
-       this.cannon.scale = 0.08; 
+       this.cannon.addImage(loadImage("imgs/canon.png"));
+       this.cannon.scale = 0.1; 
        this.cannon.friction=0.1; 
        this.cannon.maxSpeed= 2.5; 
       // this.cannon.rotateToDirection=true; 
