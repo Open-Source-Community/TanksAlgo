@@ -1,20 +1,21 @@
 class VisualTank
 {
-   constructor(x,y,width,height,imagePath)
+   constructor(x,y,bodyImage , canonImage)
    {
        this.x = x;
        this.y = y;
        this.height = height;
-       this.imagePath = imagePath;
-       this.sprite = createSprite(x,y+22,width,height);
-       this.sprite.addImage(loadImage("imgs/tankbody.png"));
+       this.bodyImage = bodyImage;
+       this.canonImage = canonImage; 
+       this.sprite = createSprite(x,y+22);
+       this.sprite.addImage(loadImage(bodyImage));
        this.sprite.scale = 0.09;
        this.velocity = 0.5;
        this.sprite.rotateToDirection = true;
        this.sprite.friction = 0.1;
        this.sprite.maxSpeed = 2.5;
        this.cannon = createSprite(x+15 , y+22); 
-       this.cannon.addImage(loadImage("imgs/canon.png"));
+       this.cannon.addImage(loadImage(canonImage));
        this.cannon.scale = 0.1; 
        this.cannon.friction=0.1; 
        this.cannon.maxSpeed= 2.5; 
@@ -57,27 +58,6 @@ class VisualTank
        this.x = this.sprite.position.x;
        this.y = this.sprite.position.y;
    }
-
-   move_to_points(reverse)
-   {
-       if (reverse == false)
-       {
-                   
-            Tank.moveToPoint(PX[i],PY[i]);
-            if(Tank.reachedPoint(PX[i],PY[i]))
-            {
-                i++ ; 
-            }    
-       }
-
-       else if (reverse==true)
-       {
-        i--; 
-        Tank.moveToPoint(PX[i],PY[i]); 
-       }
-    }                
-        
-         
 }
        
    
