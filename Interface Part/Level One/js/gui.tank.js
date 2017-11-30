@@ -40,16 +40,36 @@ class VisualTank
        this.canonImage = canonImage; 
        this.sprite = createSprite(x,y+22);
        this.sprite.addImage(loadImage(bodyImage));
-       this.sprite.scale = 0.09;
-       this.velocity = 0.5;
+       this.setScale(0.09);
        this.sprite.rotateToDirection = true;
-       this.sprite.friction = 0.1;
-       this.sprite.maxSpeed = 2.5;
-       this.canon = new Canon(x+15,y+22,canonImage);
-       this.canon.setScale(0.1);
-       this.canon.setFriction(0.1);
-       this.canon.setMaximumSpeed(2.5);
+       this.setFriction(0.1);
+       this.setMaximumSpeed(2.5);
+       this.createCanon(canonImage,0.1,0.1,2.5);
       // this.canon.rotateToDirection=true; 
+   }
+
+   setScale(scale)
+   {
+        this.sprite.scale = scale;
+   }
+
+   createCanon(canonImage,canonScale,canonFriction,canonMaxSpeed)
+   {
+        this.canon = new Canon(this.x+15,this.y+22,canonImage);
+        this.canon.setScale(canonScale); //0.1
+        this.canon.setFriction(canonFriction);//0.1
+        this.canon.setMaximumSpeed(canonMaxSpeed); //2.5
+   }
+
+
+   setFriction(f)
+   {
+       this.sprite.friction = f;
+   }
+
+   setMaximumSpeed(ms)
+   {
+        this.sprite.maxSpeed = ms;
    }
 
    moveToPoint(x,y)
@@ -67,7 +87,7 @@ class VisualTank
         bullet.addImage(loadImage("imgs/laser_bullet.png")); 
         bullet.scale=0.1; 
         bullet.rotateToDirection=true; 
-        bullet.setSpeed(20 ,this.canon.canonSprtie.rotation); 
+        bullet.setSpeed(20 ,this.canon.canonSprite.rotation); 
     }
    
    reachedPoint(xPoint,yPoint)
