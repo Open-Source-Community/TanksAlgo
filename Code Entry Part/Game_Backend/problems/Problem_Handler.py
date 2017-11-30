@@ -3,15 +3,18 @@ from random import randint
 from problems.models import Problems,Test_cases,Result
 
 class Handler:
+    problem_statement = -1
+    test_case = -1
     #Chooses a random problem from DB if no problem id specified
-    def Problem_Random(problem_id = -1):
+    def Problem_Random(self,problem_id = -1):
         if problem_id == -1:
             index = randint(0, Problems.objects.count() - 1)
         else:
             index = problem_id
-        problem_statement = Problems.objects.only()[index].problem_statement
+        self.problem_statement = Problems.objects.only()[index].problem_statement
+        self.test_case = Test_cases.objects.only()[index].test_cases
 
-        return problem_statement
+        return
 
     # Sends user's code to API to test it against test cases
     def Code_Check(src, test_cases, language, expected_return):
