@@ -1,19 +1,5 @@
 # TanksAlgo
 A web-based game for developers to practice their algorithmic skills through a game-based interface.
+Players pass levels by solving programming challenges and by writing correct efficient code and can participate in head-to-head challenges against other players.
 
-
-
-just a mini-mini-mini sample of a tank following some obstacles randomly :( 
-
-https://open-source-community.github.io/TanksAlgo/Tasks/TankTest
-
-https://open-source-community.github.io/TanksAlgo/Tasks/CollisionsTest
-
-https://open-source-community.github.io/TanksAlgo/Tasks/JustBubbles
-
-
-This is a game we made for an event, try eating the ants without touching the rocks :D
-
-https://open-source-community.github.io/TanksAlgo/Tasks/URPgame
-
-
+p5.js library is used for the GUI and Django Web-Framework for the backend.
