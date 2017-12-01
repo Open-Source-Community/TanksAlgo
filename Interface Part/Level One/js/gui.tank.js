@@ -35,24 +35,31 @@ class VisualTank
    {
        this.x = x;
        this.y = y;
+       this.attractBoolean = 1; 
        this.height = height;
        this.bodyImage = bodyImage;
        this.canonImage = canonImage; 
-       this.sprite = createSprite(x,y+22);
-       this.sprite.addImage(loadImage(bodyImage));
-       this.setScale(0.09);
-       this.sprite.rotateToDirection = true;
+       this.Body = createSprite(x,y+22);
+       this.Body.addImage(loadImage(bodyImage));
+       this.Body.rotateToDirection = true;
        this.setFriction(0.1);
        this.setMaximumSpeed(2.5);
        this.createCanon(canonImage,0.1,0.1,2.5);
+       this.setScale(0.09);
       // this.canon.rotateToDirection=true; 
    }
 
    setScale(scale)
    {
-        this.sprite.scale = scale;
+        this.Body.scale = scale;
+        this.setTotalScale(0.82); 
    }
 
+   setTotalScale(scale)
+   {
+       this.Body.scale*=scale; 
+       this.canon.canonSprite.scale*=scale; 
+   }
    createCanon(canonImage,canonScale,canonFriction,canonMaxSpeed)
    {
         this.canon = new Canon(this.x+15,this.y+22,canonImage);
@@ -64,20 +71,26 @@ class VisualTank
 
    setFriction(f)
    {
-       this.sprite.friction = f;
+       this.Body.friction = f;
    }
 
    setMaximumSpeed(ms)
    {
-        this.sprite.maxSpeed = ms;
+        this.Body.maxSpeed = ms;
    }
 
    moveToPoint(x,y)
    {
-        this.sprite.attractionPoint(0.5,x,y);
+       if (this.attractBoolean==1)
+       {
+        this.Body.attractionPoint(0.5,x,y);
         this.canon.setAttractionPoint(0.5,x,y);
+     
+
+       }
         this.canon.canonSprite.rotation+=0.8; 
-        //this.shooter(); 
+           
+               //this.shooter(); 
    }
 
    shooter()
@@ -87,7 +100,7 @@ class VisualTank
         bullet.addImage(loadImage("imgs/laser_bullet.png")); 
         bullet.scale=0.1; 
         bullet.rotateToDirection=true; 
-        bullet.setSpeed(20 ,this.canon.canonSprite.rotation); 
+        bullet.setSpeed(20 ,this.canon.canonSprite.rotation+2.4); 
     }
    
    reachedPoint(xPoint,yPoint)
@@ -101,9 +114,17 @@ class VisualTank
 
    update()
    {
-       this.x = this.sprite.position.x;
-       this.y = this.sprite.position.y;
+       this.x = this.Body.position.x;
+       this.y = this.Body.position.y;
    }
+   stopMovement(posx , posy)
+   {
+       if (this.reachedPoint(posx , posy))
+       {
+           this.attractBoolean=-1; 
+       }
+   }
+   
 }
        
    
