@@ -43,9 +43,15 @@ class VisualTank
        this.Body.addImage(loadImage(bodyImage));
        this.Body.rotateToDirection = true;
        this.setFriction(0.1);
-       this.setMaximumSpeed(2.5);
-       this.createCanon(canonImage,0.1,0.1,2.5);
+       this.setMaximumSpeed(1);
+       this.createCanon(canonImage,0.1,0.1,1);
        this.setScale(0.09);
+       this.Body.rotateToDirection=true; 
+       this.bullet; 
+       this.bulletList= new Group(); 
+       
+     
+      // this.canon.canonSprite.rotateToDirection=true; 
       // this.canon.rotateToDirection=true; 
    }
 
@@ -85,24 +91,30 @@ class VisualTank
        {
         this.Body.attractionPoint(0.5,x,y);
         this.canon.setAttractionPoint(0.5,x,y);
-     
-
        }
         this.canon.canonSprite.rotation+=0.8; 
            
                //this.shooter(); 
    }
 
+   attractCanon(x , y)
+   {
+
+    this.canon.setAttractionPoint(0.5,x,y);
+   }
    shooter()
    {
-        var bullet = createSprite(this.canon.canonSprite.position.x ,
+        this.bullet = createSprite(
+            this.canon.canonSprite.position.x ,
         this.canon.canonSprite.position.y) ;
-        bullet.addImage(loadImage("imgs/laser_bullet.png")); 
-        bullet.scale=0.1; 
-        bullet.rotateToDirection=true; 
-        bullet.setSpeed(20 ,this.canon.canonSprite.rotation+2.4); 
+        this.bullet.addImage(loadImage("imgs/laser_bullet.png")); 
+        this.bullet.scale=0.1; 
+        this.bullet.rotateToDirection=true; 
+        this.bullet.setSpeed(20 ,this.canon.canonSprite.rotation+2.4);
+        this.bullet.life=400;  
+        this.bulletList.add(this.bullet); 
     }
-   
+
    reachedPoint(xPoint,yPoint)
    {
         var d = dist(this.x,this.y,xPoint,yPoint)
@@ -123,6 +135,16 @@ class VisualTank
        {
            this.attractBoolean=-1; 
        }
+   }
+   rotateTank(bodyRotation, canonRotation)
+   {
+       this.Body.rotation+=bodyRotation; 
+       this.canon.canonSprite.rotation+=canonRotation; 
+   }
+   tankRotateTo(bool1,bool2)
+   {
+       this.Body.rotateToDirection=bool1; 
+       this.canon.canonSprite.rotateToDirection=bool2; 
    }
    
 }
