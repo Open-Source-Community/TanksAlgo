@@ -16,6 +16,14 @@ var k=setInterval(function(){
 listOfLevels[1].Tank.shooter(); 
 }
 ,1000); 
+
+
+var p=setInterval(function(){
+	
+	listOfLevels[1].enemiesSetup(); 
+	}
+	,1000); 
+
 function draw()
 {
 	 listOfLevels[currentLevel].draw();
@@ -25,6 +33,5 @@ function draw()
 function mousePressed()
 {
  
-
 }
 

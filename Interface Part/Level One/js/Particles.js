@@ -29,7 +29,18 @@ setVelocity(velocityVec)
     this.enemySprite.velocity.x = velocityVec.x; 
     this.enemySprite.velocity.y = velocityVec.y; 
 }
-
+setBouncer()
+{
+    if (this.enemySprite.position.y<10)
+    {
+        this.enemySprite.velocity.y*=-1; 
+        console.log("logged"); 
+    }
+    if (this.enemySprite.position.y>height-20)
+    {
+        this.enemySprite.velocity.y*=-1; 
+    }
+}
 }
 
 
@@ -41,4 +52,18 @@ class Logos
 class Bouncer
 {
 
+}
+
+class Timer
+{
+    constructor(x,y )
+    {
+        this.posx = x; 
+        this.posy =y; 
+        this.text; 
+    }
+    show()
+    {
+        
+    }
 }

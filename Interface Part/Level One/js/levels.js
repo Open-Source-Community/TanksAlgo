@@ -53,7 +53,8 @@ class LevelOne extends Level
         super.draw(); 
         this.trackerFunction(); 
         this.Tank.update();
-        this.Tank.moveToPoint(this.PX[i],this.PY[i]);
+        this.Tank.moveToPoint(this.PX[this.pointPos],
+            this.PY[this.pointPos]);
         //Tank.shooter(-1); 
       
         if (keyWentDown("x"))
@@ -61,11 +62,12 @@ class LevelOne extends Level
             this.Tank.shooter(); 
             //camera.off(); 
         }
-        if(this.Tank.reachedPoint(this.PX[i],this.PY[i]))
+        if(this.Tank.reachedPoint(this.PX[this.pointPos],
+            this.PY[this.pointPos]))
         {
             if(!this.Tank.reachedPoint(this.PX[8],this.PY[8]))
             {
-                i++;
+                this.pointPos++;
                 
             }
             else
@@ -90,6 +92,7 @@ class LevelTwo extends Level
         this.tankVector.x = height/2; 
         this.tankVector.y  = width/2; 
         this.enemies=new Group(); 
+        this.enemies_list = []; 
         this.numberOfEnemies=50; 
         
     }
@@ -114,34 +117,44 @@ class LevelTwo extends Level
 
     enemiesSetup()
     {
-        for (var i=0; i<this.numberOfEnemies;i++)
-        {
-           var temp = new Enemy(width-70 
+      for(var i=0; i<1; i++){
+           var temp = new Enemy(width
             , random(40, height) , "LevelTwoAssets/bubble.png"); 
             temp.createEnemy(); 
             temp.setMaxSpeed(random(2,3)); 
-            temp.setFriction(random(0.01)); 
+            temp.setFriction(random(0.001)); 
             temp.setScale(random(0.1,0.9)); 
             var veloc = createVector(random(-0.5,-3) , random(-0.2,-0.9)); 
             temp.setVelocity(veloc); 
+            this.enemies_list.push(temp); 
             this.enemies.add(temp.enemySprite);      
-            this.enemies.bounce(this.enemies);       
+           // this.enemies.bounce(this.enemies);       
+           }
+    }
+    setBouncers()
+    {
+        for (var i=0; i<this.enemies_list.length; i++)
+        {
+            this.enemies_list[i].setBouncer(); 
         }
     }
-    
+
+    returnOverlapping(spriteX, spriteY)
+    {
+        if (spriteX.overlap(spriteY))
+        return true; 
+    }
     draw()
     {
     super.draw(); 
     this.Tank.attractCanon(mouseX, mouseY); 
     this.Tank.canon.canonSprite.position.y+=0.2;
     this.Tank.Body.position.y+=0.2;
-    this.Tank.bulletList.bounce(this.enemies); 
-   
-    
-    
-    
+    this.Tank.bulletList.bounce(this.enemies);
+    this.setBouncers(); 
     drawSprites(); 
     }
 
 
 }
+
