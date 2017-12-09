@@ -115,6 +115,18 @@ class VisualTank
         this.bulletList.add(this.bullet); 
     }
 
+    bulletBouncer()
+    { 
+            if(this.bullet.position.y<10)
+            {
+                this.bullet.velocity.y*=-1; 
+            }
+            if(this.bullet.position.y>height-10)
+            {
+                this.bullet.velocity.y*=-1; 
+            }
+        
+    }
    reachedPoint(xPoint,yPoint)
    {
         var d = dist(this.x,this.y,xPoint,yPoint)
