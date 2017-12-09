@@ -117,11 +117,11 @@ class LevelTwo extends Level
         this.tankVector.y
         , "imgs/tankbody.png" 
     , "imgs/canon.png"); 
-
     this.Tank.rotateTank(90 ,0); 
     this.Tank.canon.canonSprite.position.x-=4; 
     this.Tank.canon.setFriction(0.999); 
-    this.Tank.tankRotateTo(false,true);    
+    this.Tank.tankRotateTo(false,true);   
+     
     this.enemiesSetup();  
     
     }
@@ -207,6 +207,8 @@ class LevelTwo extends Level
     }
     drawSprites(); 
 
+    this.Tank.canonFollowUp(); 
+
 
     if (keyWentDown("s"))
     {
@@ -221,17 +223,9 @@ class LevelTwo extends Level
     {
         this.spaceEnemy.shooter();
     }
+    this.Tank.Body.attractionPoint(0.5 , mouseX-30 , mouseY-30); 
     }
 
-    spawningSpaceEnemies()
-    {
-        setInterval(function()
-    {
-
-        this.spaceEnemySetup(width+20 , random(10,height), 
-    "imgs/spaceship.png"); 
-    } , 6000)
-    }
 
 
     /* 

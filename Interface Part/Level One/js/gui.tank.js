@@ -39,7 +39,7 @@ class VisualTank
        this.height = height;
        this.bodyImage = bodyImage;
        this.canonImage = canonImage; 
-       this.Body = createSprite(x,y+22);
+       this.Body = createSprite(x,y);
        this.Body.addImage(loadImage(bodyImage));
        this.Body.rotateToDirection = true;
        this.setFriction(0.1);
@@ -68,7 +68,7 @@ class VisualTank
    }
    createCanon(canonImage,canonScale,canonFriction,canonMaxSpeed)
    {
-        this.canon = new Canon(this.x+15,this.y+22,canonImage);
+        this.canon = new Canon(this.x+15,this.y,canonImage);
         this.canon.setScale(canonScale); //0.1
         this.canon.setFriction(canonFriction);//0.1
         this.canon.setMaximumSpeed(canonMaxSpeed); //2.5
@@ -159,6 +159,14 @@ class VisualTank
        this.canon.canonSprite.rotateToDirection=bool2; 
    }
    
+   canonFollowUp()
+   {
+       this.canon.canonSprite.position.x = 
+       this.Body.position.x+15;
+       this.canon.canonSprite.position.y = 
+       this.Body.position.y;  
+
+   }
 }
        
    

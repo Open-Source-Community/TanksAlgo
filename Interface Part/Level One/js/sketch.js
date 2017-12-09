@@ -1,13 +1,15 @@
 var listOfLevels=[] ;
 var currentLevel = 1;
 var b =1; 
-
+var healthbar; 
+var keymap = {'38':false , '37':false , '39':false , '40':false}; 
 
 try{
 function setup()
 {
 	listOfLevels = [new LevelOne() , new LevelTwo()];
 	listOfLevels[currentLevel].setup();
+	healthbar = new Healthbar(500 , 500 , 100 , 100, 200); 
 
 }
 
@@ -17,6 +19,7 @@ function setup()
 // listOfLevels[1].Tank.shooter(); 
 // }
 // ,1000); 
+if (currentLevel==1){
 var sh = setInterval(function()
 {
 listOfLevels[1].spaceEnemySetup(width+20 , random(10,height), 
@@ -29,50 +32,21 @@ var p=setInterval(function(){
 	}
 	,1000); 
 
+}
 function draw()
 {
 	 listOfLevels[currentLevel].draw();
-	 
+	 healthbar.draw(); 
 }
 
 function mousePressed()
 {
  listOfLevels[currentLevel].Tank.shooter(); 
+ healthbar.loseHealth(); 
 }
 }
 catch(err){
 	//nothing
 	
-}
-
-document.onkeydown = checkKey;
-
-function checkKey(e) {
-
-    e = e || window.event;
-
-    if (e.keyCode == '38') {
-		// up arrow
-		listOfLevels[currentLevel].Tank.Body.position.y-=2.5; 
-		listOfLevels[currentLevel].Tank.canon.canonSprite.position.y-=2.5; 
-		
-	}
-	else if (e.keyCode == '40') {
-		// down arrow
-		listOfLevels[currentLevel].Tank.Body.position.y+=2.5; 
-		listOfLevels[currentLevel].Tank.canon.canonSprite.position.y+=2.5; 
-	}
-	
-	else if (e.keyCode == '37') {
-		// left arrow
-		listOfLevels[currentLevel].Tank.Body.position.x-=2.5; 
-		listOfLevels[currentLevel].Tank.canon.canonSprite.position.x-=2.5; 
-	 }
-	 else if (e.keyCode == '39') {
-		// right arrow
-		listOfLevels[currentLevel].Tank.Body.position.x+=2.5; 
-		listOfLevels[currentLevel].Tank.canon.canonSprite.position.x+=2.5; 
-	 }
-
 }
 

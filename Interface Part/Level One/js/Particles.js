@@ -93,31 +93,47 @@ lifeSprite(life)
 }
 }
 
-class Bouncer
+class Healthbar
 {
-
-}
-
-class Timer
-{
-    constructor(x,y )
+    constructor(x , y , health , maxhealth , rectanglewidth)
     {
         this.posx = x; 
-        this.posy =y; 
-        this.text; 
+        this.poxy = y; 
+        this.health = health ; 
+        this.maxhealth = maxhealth; 
+        this.rectanglewidth =rectanglewidth; 
     }
-    show()
+
+    draw()
     {
+        if (this.health < 25)
+        {
+          fill(255, 0, 0);
+        }  
+        else if (this.health < 50)
+        {
+          fill(255, 200, 0);
+        }
+        else
+        {
+          fill(0, 255, 0);
+        }
+
+        noStroke();
+        // Get fraction 0->1 and multiply it by width of bar
+        var  drawWidth = (this.health / this.maxhealth) * this.rectanglewidth;
+        if(this.health>0)
+        rect(this.posx, this.poxy, drawWidth, 50);
         
+        // Outline
+        stroke(0);
+        noFill();
+        if(this.health>0); 
+        rect(this.posx, this.poxy, this.rectWidth, 50);
     }
-}
-
-
-class SpaceEnemy extends Enemy
-{
-    constructor()
+    loseHealth()
     {
-        super(); 
+        this.health-=10; 
     }
-
+    
 }
