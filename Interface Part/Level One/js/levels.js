@@ -223,6 +223,8 @@ class LevelTwo extends Level
     {
         this.spaceEnemy.shooter();
     }
+    if (dist(mouseX, mouseY, this.Tank.Body.position.x , 
+    this.Tank.Body.position.y) >100)
     this.Tank.Body.attractionPoint(0.5 , mouseX-30 , mouseY-30); 
     }
 

@@ -13,7 +13,9 @@ try{
         var movementspeed=6; 
         if (keymap['38'] == true) {
             // up arrow
-            listOfLevels[currentLevel].Tank.Body.velocity.y-=3; 
+            //listOfLevels[currentLevel].Tank.Body.velocity.y-=3; 
+            listOfLevels[currentLevel].Tank.Body.maxSpeed+=0.2; 
+                      
             //listOfLevels[currentLevel].Tank.canon.canonSprite.position.y-=movementspeed; 
             
         }
