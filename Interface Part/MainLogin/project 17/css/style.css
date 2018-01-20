@@ -1,0 +1,138 @@
+body
+{
+	font-family: 'Acme', sans-serif;
+}
+.head
+{
+	position: absolute;
+	left: 45%;
+	top: 30%;
+	font-family: 'Acme';
+}
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #feae01;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear 2;
+}
+.loading img
+{
+	width: 200px;
+	animation-name: tank;
+	animation-duration: 5s;
+	animation-iteration-count: 1;
+	position: absolute;
+}
+.w
+{
+	display: none;
+	width: 100%;
+	height: 100vh;
+	background: url(../2.jpg);
+	background-size: cover;
+}
+.img
+{
+	width: 75px;
+	height: 40px;
+	position: absolute;
+	left: 26%;
+	top: -20%;
+}
+.img img
+{
+	width: 100%;
+	height: 200%;
+}
+.w h3
+{
+    font-weight: bold;
+    color: #feae01;
+    margin-bottom: 0;
+    position: absolute;
+    left: 22%;
+    margin-bottom: 4%;
+    text-align: center;
+    display: none;
+    font-family: 'Acme';
+}
+.s
+{
+	background: rgba(0,0,0,.6);
+	width: 10px;
+	height: 2px;
+	position: absolute;
+	left: 32%;
+	top: 30%;
+	border-radius: 10px;
+}
+.s form
+{
+	margin-top: 9%;
+	display: none;
+}
+.s input
+{
+	width: 80%;
+	margin-left:10%;
+	padding-bottom:10px;
+	border-top-left-radius:  5px;
+	border-top-right-radius:  5px;
+	outline: none;
+	margin-top: 10%;
+	border: none;
+	border-bottom: 3px solid #feae01;
+	color: #feae01
+}
+.s input ::placeholder
+{
+	text-align: center;
+	color: #feae01
+}
+.s input[type='password']
+{
+	margin-top: 2%;
+}
+.s button
+{
+	    outline: none;
+	    color: #fff;
+    background: #feae01;
+    margin-top: 4%;
+    margin-left: 10%;
+    width: 80%;
+}
+.logo
+{
+  z-index: 4;
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+.logo img
+{
+	width: 100%;
+	height: 100%;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.res
+{
+	width: 100%;
+	height: 100%;
+	color: #feae01;
+	font-weight: bold;
+}
+.res .head
+{
+	display: none;
+	position: absolute;
+	left: 25%;
+	top: 30%;
+}
