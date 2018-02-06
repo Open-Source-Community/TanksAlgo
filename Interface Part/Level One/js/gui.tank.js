@@ -110,7 +110,7 @@ class VisualTank
         this.bullet.addImage(loadImage("imgs/laser_bullet.png")); 
         this.bullet.scale=0.1; 
         this.bullet.rotateToDirection=true; 
-        this.bullet.setSpeed(20 ,this.canon.canonSprite.rotation+2.4);
+        this.bullet.setSpeed(15 ,this.canon.canonSprite.rotation+2.4);
         this.bullet.life=400;  
         this.bulletList.add(this.bullet); 
     }

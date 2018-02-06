@@ -24,11 +24,13 @@
     <div class="container">
       <div class="img"><img src="0.png"></div>
       <div class="s">
-        <h3>Welcome to AlgoTanks</h3>
-      <form action="../Level One/index.html">
-        <input type="text" name="" placeholder="Enter Username">
-        <input type="password" name="" placeholder=" Enter Password">
-       <button  class="btn btn-lg q">Login</button>
+        <h3 id="welcome">Welcome to AlgoTanks</h3>
+      <form action="#" >
+        <input id="EmailText" class="EmailText" type="email" name="" placeholder="Enter Email">
+        <input id="PasswordText" class="PasswordText" type="password" name="" placeholder=" Enter Password">
+       <button  id="Login"  class="btn btn-lg q Login">Login</button>
+       <button id="Signup"  class="btn btn-lg q Signup">Sign Up</button>
+       <button id="Signout"  class="btn btn-lg q Signup">Sign out</button>
       </form>
 
       
@@ -43,14 +45,14 @@
       <h3>sorry!! the web site not responsive</h3>
     </div>
   </div>
+  <script src="../Session Handler/SessionCreator.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
    <script src="js/jquery-3.2.1.min.js"></script>
  <script src="js/bootstrap.min.js"></script>
  <script src="js/main.js"></script>
- <script>
-  function Login()
-  {
-   window.location.href= "https://www.google.com"; 
-  } 
- </script>
+ <script src="js/UserClass.js"></script>
+
+
+
 </body>
 </html>

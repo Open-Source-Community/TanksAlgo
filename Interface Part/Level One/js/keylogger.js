@@ -1,3 +1,5 @@
+if (currentLevel == 1 || currentLevel ==2)
+{
 try{
     document.onkeydown = checkKey;
     document.onkeyup=stopkey; 
@@ -33,6 +35,7 @@ try{
           if (keymap['39'] == true) {
             // right arrow
             listOfLevels[currentLevel].Tank.Body.velocity.x+=movementspeed; 
+            
            // listOfLevels[currentLevel].Tank.canon.canonSprite.position.x+=movementspeed; 
          }
     
@@ -48,5 +51,6 @@ try{
     }
     catch(err)
     {
-    //
-    }
+    //    
+}
+}

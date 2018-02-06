@@ -19,10 +19,6 @@ $(function (){
 
     //editor.getValue(); // or session.getValue  //to get content
 
-    var $myoudio = document.getElementById('myPlayer');
-    $myoudio.play();
-    if($myoudio.ended){
-        $myoudio.play();
-    }
+    
 })
 

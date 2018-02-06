@@ -53,6 +53,8 @@ class LevelOne extends Level
     }
     draw()
     {
+     
+
         super.draw(); 
         this.trackerFunction(); 
         this.Tank.update();
@@ -86,7 +88,24 @@ class LevelOne extends Level
     }
 
 }
+class LevelThree extends Level
+{
+    constructor()
+    {
+        super(); 
 
+    }
+    
+    setup()
+    {
+        super.setup(); 
+    }
+
+    draw()
+    {
+        setup.draw(); 
+    }
+}
 class LevelTwo extends Level
 {
     constructor()
