@@ -47,6 +47,59 @@
     </div>
   </div>
 </section> -->
+<button type="button" class="vieQuestion btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">View Question</button>
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="gridSystemModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <p class="theQuestuion">hhhhhhhhhhhhhhhhhhhh hhhhhhhhhhhhhhhh hhhhhhhhhhhhhhhh hhhhhhhhhhhhhhh hhhhhhhhhhhhhhhhhh hhhhhhhhhhhhhhhhhhhh hhhhhhhhhhhhhhhh hhhhhhhhhhhhhhhh hhhhhhhhhhhhhhh hhhhhhhhhhhhhhhhhh</p>
+          <hr class="brake">
+
+          <!-- MCQ Choices -->
+          <div class="input-group mcqChoices">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <div class="option1">
+                  <input type="radio" name="optradio">
+                  <label>Option 1</label>
+                </div>
+                <div class="option2">
+                  <input type="radio" name="optradio">
+                  <label>Option 2</label>
+                </div>
+                <div class="option3">
+                  <input type="radio" name="optradio">
+                  <label>Option 3</label>
+                </div>
+                <div class="option4">
+                  <input type="radio" name="optradio">
+                  <label>Option 4</label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Trace Answer -->
+          <div class="input-group traceAnswer">
+            <input type="text" class="form-control" value="">
+          </div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="../Session Handler/SessionCreator.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
 <script src="BackendScripts/databasehandler.js"></script>

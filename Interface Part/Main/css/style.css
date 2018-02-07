@@ -2,6 +2,10 @@ body
 {
 	font-family: 'Acme', sans-serif;
 }
+canvas{
+	background: url("../2.jpg");
+	background-size: cover;
+}
 .head
 {
 	position: absolute;
@@ -25,14 +29,15 @@ body
 	animation-iteration-count: 1;
 	position: absolute;
 }
-.w
+/* .w
 {
 	display: none;
 	width: 100%;
 	height: 100vh;
 	background: url(../2.jpg);
 	background-size: cover;
-}
+} */
+
 .img
 {
 	width: 75px;
