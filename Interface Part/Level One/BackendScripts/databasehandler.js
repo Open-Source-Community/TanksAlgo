@@ -15,7 +15,7 @@ function snapshotToArray(snapshot) {
 // ** Variables for the Database  ** //
 var UserKey; 
 var ListOfProblems; 
-var UserData; 
+var UserProfile ; 
 
 var config = {
     apiKey: "AIzaSyA0TxMMP_jDabR1MA9X-ccKV8I5FPGoQi8",
@@ -27,6 +27,8 @@ var config = {
   };
   firebase.initializeApp(config);
 
+  var key; 
+  var temp; 
   
   var database = firebase.database(); 
 
@@ -85,12 +87,17 @@ function FetchQuestion()
  return  ListOfProblems[Math.floor(Math.random()*(ListOfProblems.length-1))]; 
 }
 
-function SubmissionChecker(question , answer)
-{
-  if (answer == question.Answer){
-    return true; 
-  }
-  return false; 
-}
+console.log(UserKey); 
 
 
+ref = database.ref("Users"); 
+ref.orderByChild("UserKey").equalTo(UserKey).once("value" , snapshot =>
+{ 
+  // ** inject user data into a made object from UserCLass.js
+
+  key = Object.keys(snapshot.val())[0];
+  temp = snapshot.val(); 
+  UserProfile = new UserData(temp[key].Name ,temp[key].Email,key , temp[key].Score ,temp[key].Problems_solved );
+  console.log(UserProfile); 
+
+})

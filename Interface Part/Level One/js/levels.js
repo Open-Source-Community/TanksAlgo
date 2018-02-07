@@ -28,7 +28,8 @@ class Level
     }
 
 }
-    var i =0; 
+var i =6; 
+var conto = -1; 
 class LevelOne extends Level
 {
     constructor(background)
@@ -39,6 +40,7 @@ class LevelOne extends Level
         this.PY = [254,288,263,202,192,196,210,236,240,250,277,315,318,278,260,234,203,190,189,190,169,136,145,135,90];
         this.pointPos=0; 
         this.tankVector= createVector(850 ,(height/2)+120);
+        this.currentQuestion=null; 
 
     }
     setup()
@@ -62,22 +64,32 @@ class LevelOne extends Level
             this.PY[this.pointPos]);
         //Tank.shooter(-1); 
       
-        if (keyWentDown("x"))
-        {
-            this.Tank.shooter(); 
-            //camera.off(); 
-        }
         if(this.Tank.reachedPoint(this.PX[this.pointPos],
             this.PY[this.pointPos]))
         {
-            if(!this.Tank.reachedPoint(this.PX[8],this.PY[8]))
+ 
+            if (this.Tank.reachedPoint(this.PX[this.PX.length-1] , this.PY[this.PY.length-1]))
             {
-                this.pointPos++;
+                // game ended hoorrraaaaayy :D
+                console.log(UserProfile.score); 
+                this.Tank.attractionPoint=-1; 
+                this.Tank.setFriction(1); 
                 
+                
+                
+            }
+            else if(this.Tank.reachedPoint(this.PX[i],this.PY[i]))
+            {
+                this.currentQuestion=FetchQuestion()
+                localStorage["CurrentAnswer"]= this.currentQuestion.Answer; 
+                FillQuestion(this.currentQuestion);
+                i=i+5; 
+                noLoop();
             }
             else
             {
-                this.Tank.attractBoolean=-1; 
+                //this.Tank.attractBoolean=-1
+                this.pointPos++;
             }
             
         }
