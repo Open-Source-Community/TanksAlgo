@@ -35,9 +35,10 @@ firebase.auth().signOut();
 var KeyPassing=null; 
 var EmailInput = document.getElementById("EmailText"); 
 var PasswordInput = document.getElementById("PasswordText"); 
+var Message = document.getElementById("welcome");
 const BtnLogin = document.getElementById("Login"); 
 const BtnSignup = document.getElementById("Signup");  
-const BtnSignout = document.getElementById("Signout"); 
+// const BtnSignout = document.getElementById("Signout"); 
 //
 
 
@@ -51,16 +52,15 @@ BtnLogin.addEventListener('click' , e =>{
 
 	EmailInput.value=""; 
 	PasswordInput.value=""; 
-
 	
 
 	// welcoming the user
 	setTimeout(function(){
 		console.log(KeyPassing);
 	if (KeyPassing!=null)	{
-	window.location.href = "file:///C:/Users/'abc/Desktop/TanksAlgo/TanksAlgo/Interface%20Part/Level%20One/index.html?par1=" + KeyPassing;
+	window.location.href = "../Level%20One/index.html?par1=" + KeyPassing;
 	}
-},3500); 
+},5500); 
 	
 
 });
@@ -72,22 +72,23 @@ BtnSignup.addEventListener('click' , e=>{
 	const promise = auth.createUserWithEmailAndPassword(email , password); 
 	EmailInput.value=""; 
 	PasswordInput.value="";
-
+	Message.innerHTML= "Signed Up Successfully. Please Login Now.";
+	Message.style.left="2%";
 });
 
 
 
-BtnSignout.addEventListener('click' , e =>{
+// BtnSignout.addEventListener('click' , e =>{
 
-	firebase.auth().signOut().then(function() {
-		console.log("sign out is successfully made"); 
-		EmailInput.value=""; 
-		PasswordInput.value="";
-	}).catch(e)
-	{
-		console.log(e.message); 
-	}
-});
+// 	firebase.auth().signOut().then(function() {
+// 		console.log("sign out is successfully made"); 
+// 		EmailInput.value=""; 
+// 		PasswordInput.value="";
+// 	}).catch(e)
+// 	{
+// 		console.log(e.message); 
+// 	}
+// });
 
 firebase.auth().onAuthStateChanged(firebaseUser =>{
 	if (firebaseUser)

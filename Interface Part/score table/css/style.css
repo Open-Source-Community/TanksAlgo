@@ -1,0 +1,40 @@
+body, html {
+  overflow-x: hidden; 
+  background-color: #DDD; }
+
+.main{
+  background-color: #DDD;
+  padding-top: 30px;
+}
+
+.card-header{
+  color: black;
+  text-align: center;
+  font-size: 40px;  
+}
+
+.card-body{
+  background: white;
+  margin: 0;
+}
+
+.table tr{
+  background: #FFF;
+  font-size: 18px;
+}
+
+.table .tableBody tr:hover td,
+.table .tableBody tr:hover th{
+  background: #DC3545;
+  color: white;
+  font-size: 20px;
+  padding-right: 30px;
+}
+
+.table td,
+.table th{
+   width: 250px;
+   text-align: center;
+}
+
+

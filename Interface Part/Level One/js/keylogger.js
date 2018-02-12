@@ -1,4 +1,4 @@
-if (currentLevel == 1 || currentLevel ==2)
+if (currentLevel == 1 || currentLevel ==0)
 {
 try{
     document.onkeydown = checkKey;

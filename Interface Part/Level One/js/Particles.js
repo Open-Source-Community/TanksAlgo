@@ -8,6 +8,9 @@ constructor(x,y , imagePath)
     this.imagePath= imagePath; 
     this.bullet; 
     this.bulletList = new Group(); 
+    this.health = 100; 
+    this.hits = 0; 
+    this.shoot = true; 
 }
 createEnemy()
 {
@@ -36,7 +39,6 @@ setBouncer()
     if (this.enemySprite.position.y<10)
     {
         this.enemySprite.velocity.y*=-1; 
-        console.log("logged"); 
     }
     if (this.enemySprite.position.y>height-20)
     {
@@ -50,15 +52,21 @@ setAttraction(x,y)
 }
 shooter()
 {
+    if (this.shoot==true){
      this.bullet = createSprite(
          this.enemySprite.position.x ,
      this.enemySprite.position.y) ;
      this.bullet.addImage(loadImage("imgs/boom.png")); 
-     this.bullet.scale=0.9; 
+     this.bullet.scale=0.7; 
      this.bullet.rotateToDirection=true; 
-     this.bullet.setSpeed(20 ,this.enemySprite.rotation+2.4);
+     this.bullet.setSpeed(10 ,this.enemySprite.rotation+2.4);
      this.bullet.life=400;  
      this.bulletList.add(this.bullet); 
+    }
+    else
+    {
+    // do nothginggg
+    }
  }
 }
 
@@ -133,7 +141,13 @@ class Healthbar
     }
     loseHealth()
     {
-        this.health-=10; 
+        this.health-=20; 
     }
     
+}
+
+function updateScore(a)
+{
+    GlobalScore+=a;
+    document.getElementById("score").innerText=Math.floor(GlobalScore.toString());  
 }

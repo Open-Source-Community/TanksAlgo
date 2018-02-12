@@ -6,7 +6,7 @@ var fireworks = (function() {
   var pointerX = 0;
   var pointerY = 0;
   var tap = ('ontouchstart' in window || navigator.msMaxTouchPoints) ? 'touchstart' : 'mousedown';
-  var colors = ['#FF1461', '#18FF92', '#5A87FF', '#FBF38C'];
+  var colors = ['#E25822', '#E27822', '#E25822', '#BC3500'];
 
   function setCanvasSize() {
     canvasEl.width = window.innerWidth * 2;
@@ -36,7 +36,7 @@ var fireworks = (function() {
     p.x = x;
     p.y = y;
     p.color = colors[anime.random(0, colors.length - 1)];
-    p.radius = anime.random(16, 32);
+    p.radius = anime.random(16, 50);
     p.endPos = setParticuleDirection(p);
     p.draw = function() {
       ctx.beginPath();

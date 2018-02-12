@@ -21,5 +21,17 @@ class UserData{
         Score: this.score
       });
     }
+    updateScore(score)
+    {
+      if (score>this.score)
+      {
+      console.log("Updating Score"); 
+      firebase.database().ref().child('/Users/' + UserProfile.userKey)
+          .update({ Score: score });
+    }
+    else
+    console.log("this is not your best score, try later bud to enhance it:D"); 
+  }
+
   }
 

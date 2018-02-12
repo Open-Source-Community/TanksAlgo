@@ -5,13 +5,15 @@ var Op2 = document.getElementById("option2");
 var Op3 = document.getElementById("option3"); 
 var Op4 = document.getElementById("option4"); 
 var Submissionbtn = document.getElementById("Submissionbtn"); 
-
+var GlobalScore = 0; 
 
 function FillQuestion(question)
 {
     var temp = question.Text;
+    console.log(question.Text); 
     QuestionText.innerText = question.Text; 
     document.getElementById("triggerbtn").click();  
+    
     Op1.innerHTML=question.Choices[0]; 
     Op2.innerHTML=question.Choices[1]; 
     Op3.innerHTML=question.Choices[2]; 
@@ -30,15 +32,16 @@ for (var i = 0; i < radios.length; i++) {
        value = radios[i].value;         
     }   
 }
-console.log("radio" , value*2 , "answer" , localStorage["CurrentAnswer"]*2);
 if (parseInt(localStorage["CurrentAnswer"]) == parseInt(value))
     {
       console.log("well done");
-      UserProfile.score+=5;         // update the user score with something 
+      GlobalScore+=5;   
+      document.getElementById("score").innerText=GlobalScore.toString();      // update the user score with something 
     }
     else
     {
         console.log("wrong answer"); 
+        // say something im giving up on you 
     }
     // var ref2 = database.ref().child("Users");
 

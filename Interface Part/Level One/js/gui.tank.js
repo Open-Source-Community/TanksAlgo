@@ -35,6 +35,7 @@ class VisualTank
    {
        this.x = x;
        this.y = y;
+       this.bounce_rec = createSprite(x,y , 2 , 2); 
        this.attractBoolean = 1; 
        this.height = height;
        this.bodyImage = bodyImage;
@@ -73,8 +74,11 @@ class VisualTank
         this.canon.setFriction(canonFriction);//0.1
         this.canon.setMaximumSpeed(canonMaxSpeed); //2.5
    }
-
-
+   setTankFriction(f)
+   {
+       this.Body.friction=f; 
+       this.canon.setFriction(f); 
+   }
    setFriction(f)
    {
        this.Body.friction = f;
@@ -111,12 +115,13 @@ class VisualTank
         this.bullet.scale=0.1; 
         this.bullet.rotateToDirection=true; 
         this.bullet.setSpeed(15 ,this.canon.canonSprite.rotation+2.4);
-        this.bullet.life=400;  
+        this.bullet.life=120;  
         this.bulletList.add(this.bullet); 
     }
 
     bulletBouncer()
     { 
+    
             if(this.bullet.position.y<10)
             {
                 this.bullet.velocity.y*=-1; 

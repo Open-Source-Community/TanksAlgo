@@ -84,7 +84,15 @@ ListOfProblems= snapshotToArray(snapshot);
 // random question fetching
 function FetchQuestion()
 {
- return  ListOfProblems[Math.floor(Math.random()*(ListOfProblems.length-1))]; 
+  console.log(Math.floor(Math.random()*ListOfProblems.length-1)); 
+  var randomnum = Math.floor(Math.random()*(ListOfProblems.length-1)); 
+  if (randomnum>ListOfProblems.length-1)
+  randomnum--; 
+
+  var temp =ListOfProblems[randomnum];
+   ListOfProblems.splice(randomnum,1); 
+ return  temp; 
+ console.log(ListOfProblems); 
 }
 
 console.log(UserKey); 
