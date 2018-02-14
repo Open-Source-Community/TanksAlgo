@@ -20,7 +20,7 @@ $(document).ready(function()
 		width:'400'
 	},2000)
     $(".s").animate({
-		height:'350'
+		height:'288'
 	},2000)
     $(".s form").delay(3000).fadeIn(5000)
     $("h3").delay(3000).fadeIn(1000);
@@ -41,6 +41,8 @@ const BtnSignup = document.getElementById("Signup");
 // const BtnSignout = document.getElementById("Signout"); 
 //
 
+EmailInput.innerHTML=""; 
+PasswordInput.innerHTML=""; 
 
 BtnLogin.addEventListener('click' , e =>{
 	const email = EmailInput.value; 
@@ -60,7 +62,7 @@ BtnLogin.addEventListener('click' , e =>{
 	if (KeyPassing!=null)	{
 	window.location.href = "../Level%20One/index.html?par1=" + KeyPassing;
 	}
-},5500); 
+},2000); 
 	
 
 });

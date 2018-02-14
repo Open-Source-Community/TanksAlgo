@@ -1,19 +1,13 @@
 # TanksAlgo
 A web-based game for developers to practice their algorithmic skills through a game-based interface.
 
+Game Link:
+
+https://amrtaher1234.github.io/TanksAlgo/Interface%20Part/Main/
 
 
-just a mini-mini-mini sample of a tank following some obstacles randomly :( 
+ScoreBoard link:
 
-https://open-source-community.github.io/TanksAlgo/Tasks/TankTest
-
-https://open-source-community.github.io/TanksAlgo/Tasks/CollisionsTest
-
-https://open-source-community.github.io/TanksAlgo/Tasks/JustBubbles
-
-
-This is a game we made for an event, try eating the ants without touching the rocks :D
-
-https://open-source-community.github.io/TanksAlgo/Tasks/URPgame
+https://amrtaher1234.github.io/TanksAlgo/Interface%20Part/score%20table/index.html
 
 
