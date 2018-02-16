@@ -35,61 +35,103 @@ class VisualTank
    {
        this.x = x;
        this.y = y;
+       this.bounce_rec = createSprite(x,y , 2 , 2); 
+       this.attractBoolean = 1; 
        this.height = height;
        this.bodyImage = bodyImage;
        this.canonImage = canonImage; 
-       this.sprite = createSprite(x,y+22);
-       this.sprite.addImage(loadImage(bodyImage));
-       this.setScale(0.09);
-       this.sprite.rotateToDirection = true;
+       this.Body = createSprite(x,y);
+       this.Body.addImage(loadImage(bodyImage));
+       this.Body.rotateToDirection = true;
        this.setFriction(0.1);
-       this.setMaximumSpeed(2.5);
-       this.createCanon(canonImage,0.1,0.1,2.5);
+       this.setMaximumSpeed(1);
+       this.createCanon(canonImage,0.1,0.1,1);
+       this.setScale(0.09);
+       this.Body.rotateToDirection=true; 
+       this.bullet; 
+       this.bulletList= new Group(); 
+       
+     
+      // this.canon.canonSprite.rotateToDirection=true; 
       // this.canon.rotateToDirection=true; 
    }
 
    setScale(scale)
    {
-        this.sprite.scale = scale;
+        this.Body.scale = scale;
+        this.setTotalScale(0.82); 
    }
 
+   setTotalScale(scale)
+   {
+       this.Body.scale*=scale; 
+       this.canon.canonSprite.scale*=scale; 
+   }
    createCanon(canonImage,canonScale,canonFriction,canonMaxSpeed)
    {
-        this.canon = new Canon(this.x+15,this.y+22,canonImage);
+        this.canon = new Canon(this.x+15,this.y,canonImage);
         this.canon.setScale(canonScale); //0.1
         this.canon.setFriction(canonFriction);//0.1
         this.canon.setMaximumSpeed(canonMaxSpeed); //2.5
    }
-
-
+   setTankFriction(f)
+   {
+       this.Body.friction=f; 
+       this.canon.setFriction(f); 
+   }
    setFriction(f)
    {
-       this.sprite.friction = f;
+       this.Body.friction = f;
    }
 
    setMaximumSpeed(ms)
    {
-        this.sprite.maxSpeed = ms;
+        this.Body.maxSpeed = ms;
    }
 
    moveToPoint(x,y)
    {
-        this.sprite.attractionPoint(0.5,x,y);
+       if (this.attractBoolean==1)
+       {
+        this.Body.attractionPoint(0.5,x,y);
         this.canon.setAttractionPoint(0.5,x,y);
+       }
         this.canon.canonSprite.rotation+=0.8; 
-        //this.shooter(); 
+           
+               //this.shooter(); 
    }
 
+   attractCanon(x , y)
+   {
+
+    this.canon.setAttractionPoint(0.5,x,y);
+   }
    shooter()
    {
-        var bullet = createSprite(this.canon.canonSprite.position.x ,
+        this.bullet = createSprite(
+            this.canon.canonSprite.position.x ,
         this.canon.canonSprite.position.y) ;
-        bullet.addImage(loadImage("imgs/laser_bullet.png")); 
-        bullet.scale=0.1; 
-        bullet.rotateToDirection=true; 
-        bullet.setSpeed(20 ,this.canon.canonSprite.rotation); 
+        this.bullet.addImage(loadImage("imgs/laser_bullet.png")); 
+        this.bullet.scale=0.1; 
+        this.bullet.rotateToDirection=true; 
+        this.bullet.setSpeed(15 ,this.canon.canonSprite.rotation+2.4);
+        this.bullet.life=120;  
+        this.bulletList.add(this.bullet); 
     }
-   
+
+    bulletBouncer()
+    { 
+    
+            if(this.bullet.position.y<10)
+            {
+                this.bullet.velocity.y*=-1; 
+            }
+            if(this.bullet.position.y>height-10)
+            {
+                this.bullet.velocity.y*=-1; 
+            }
+        
+    }
    reachedPoint(xPoint,yPoint)
    {
         var d = dist(this.x,this.y,xPoint,yPoint)
@@ -101,8 +143,34 @@ class VisualTank
 
    update()
    {
-       this.x = this.sprite.position.x;
-       this.y = this.sprite.position.y;
+       this.x = this.Body.position.x;
+       this.y = this.Body.position.y;
+   }
+   stopMovement(posx , posy)
+   {
+       if (this.reachedPoint(posx , posy))
+       {
+           this.attractBoolean=-1; 
+       }
+   }
+   rotateTank(bodyRotation, canonRotation)
+   {
+       this.Body.rotation+=bodyRotation; 
+       this.canon.canonSprite.rotation+=canonRotation; 
+   }
+   tankRotateTo(bool1,bool2)
+   {
+       this.Body.rotateToDirection=bool1; 
+       this.canon.canonSprite.rotateToDirection=bool2; 
+   }
+   
+   canonFollowUp()
+   {
+       this.canon.canonSprite.position.x = 
+       this.Body.position.x+15;
+       this.canon.canonSprite.position.y = 
+       this.Body.position.y;  
+
    }
 }
        

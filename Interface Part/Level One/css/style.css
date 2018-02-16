@@ -1,68 +1,54 @@
+#theQuestion{
+  white-space: pre-wrap;
+}
 body, html {
-  overflow-x: hidden; }
+  overflow-x: hidden; 
+  overflow-y: hidden;
+ }
 
-.allGame {
-  background-color: #CCC; }
-  .allGame .logo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    background: url("https://scontent.fprg2-1.fna.fbcdn.net/v/t1.0-9/11707577_506861882813523_4551462442736399875_n.png?oh=0ab2aeb285ada79ecf18cbbdba12c0ac&oe=5A7C3829");
-    background-size: 100% 100%;
-    animation: hideLogo 4s ease-out forwards; }
-@keyframes hideLogo {
-  0% {
-    opacity: 1; }
-  10% {
-    opacity: 0.9; }
-  20% {
-    opacity: 0.8; }
-  30% {
-    opacity: 0.7; }
-  40% {
-    opacity: 0.6; }
-  50% {
-    opacity: 0.5; }
-  60% {
-    opacity: 0.4; }
-  70% {
-    opacity: 0.3; }
-  80% {
-    opacity: 0.2; }
-  90% {
-    opacity: 0.1; }
-  100% {
-    opacity: 0; } }
-  .allGame .row .game {
-    margin-bottom: 20px;
-    max-width: 75%;
-    width: 75%; }
-  .allGame .row .myCode {
-    position: relative;
-    margin-left: 15px;
-    border: 5px solid green;
-    min-height: 150px;
-    max-width: 75%;
-    width: 75%;
-    font-size: 20px;
-     }
-  .allGame .row .myControl button, .allGame .row .myControl select {
-    margin-top: 40px;
-    font-weight: bold;
-    color: white; }
-  .allGame .row .myControl button {
-    margin-bottom: 20px;
-    float: right; }
-  .allGame .row .myControl select {
-    background-color: #333; }
 
-@media (max-width: 991px) {
-  .allGame .row .game {
-    max-width: 90%;
-    width: 90%; }
-  .allGame .row .myCode {
-    max-width: 90%;
-    width: 90%; } }
+.brake{
+  border: 1px solid white;
+  width: 100%;
+}
 
-/*# sourceMappingURL=style.css.map */
+.modal-content{
+  background: rgba(255, 255, 255, 0.5)!important;
+  color: black;
+  padding: 0 20px;
+  font-family: cursive;
+}
+
+.vieQuestion{
+  position: absolute;
+  bottom: 40px;
+  left: 530px;
+  width: 300px;
+  font-size: 20px!important;
+  font-weight: bold!important;
+  font-family: cursive!important;
+  z-index: 9999;
+}
+
+.oscLogo{
+  position: absolute;
+  top: 0px;
+  right: -20px;
+  height: 150px;
+  width: 170px;
+  z-index: 9999;
+}
+
+.playScore{
+  height: 40px;
+  /* background-color: rgb(0,0,0,0); */
+  text-align: center;
+  line-height: 40px;
+  font-family: cursive;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  z-index: 9999;
+}
+
+
