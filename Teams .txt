@@ -1,8 +1,0 @@
- interface
-MUSTA
-ASHRAF
-MOSTAFA
-AHMAD
-ABD
-KAMAL
-master
