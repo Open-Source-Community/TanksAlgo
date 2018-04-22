@@ -10,7 +10,7 @@ const config = {
 
 $(document).ready(function()
 {
-    $(".loading").hide(200)	
+    $(".loading").hide(400)	
 	$(".w").fadeIn(4000);
 	$(".img").animate({
 		top:'27%',

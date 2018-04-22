@@ -2,7 +2,7 @@
 # TanksAlgo
 A web-based game for developers to practice their algorithmic skills through a game-based interface
 
-Game Link::
+Game Link:
 
 https://amrtaher1234.github.io/TanksAlgo/Game/Main/
 
