@@ -1,14 +1,14 @@
 
 # TanksAlgo
-A web-based game for developers to practice their algorithmic skills through a game-based interface.
+A web-based game for developers to practice their algorithmic skills through a game-based interface
 
 Game Link:
 
-https://amrtaher1234.github.io/TanksAlgo/Interface%20Part/Main/
+https://amrtaher1234.github.io/TanksAlgo/Game/Main/
 
 
 ScoreBoard link:
 
-https://amrtaher1234.github.io/TanksAlgo/Interface%20Part/score%20table/index.html
+https://amrtaher1234.github.io/TanksAlgo/Game/score%20table/index.html
 
 

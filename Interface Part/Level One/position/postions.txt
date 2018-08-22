@@ -1,6 +1,0 @@
-position of X [486, 495, 291, 158, -5, -48, 156, 4]
-position of Y [353, 258, 205, 260, 280, 247, 144, 97]
-
-
-first point X,Y [486,353]
-last point X,Y [4,97] 
