@@ -4,11 +4,11 @@ A web-based game for developers to practice their algorithmic skills through a g
 
 Game Link:
 
-https://amrtaher1234.github.io/TanksAlgo/Game/Main/
+[Game](https://open-source-community.github.io/TanksAlgo/Game/Main/)
 
 
 ScoreBoard link:
 
-https://amrtaher1234.github.io/TanksAlgo/Game/score%20table/index.html
+[ScoreBoard](https://amrtaher1234.github.io/TanksAlgo/Game/score%20table/index.html)
 
 
