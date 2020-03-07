@@ -16,7 +16,7 @@ var keymap = {'38':false , '37':false , '39':false , '40':false};
 try{
 function setup()
 {
-	listOfLevels = [new LevelTwo()];
+	listOfLevels = [new LevelOne , new LevelTwo()];
 	listOfLevels[currentLevel].setup();
 	// healthbar = new Healthbar(500 , 500 , 100 , 100, 200); 
 
